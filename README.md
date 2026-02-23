@@ -45,4 +45,17 @@ El 'serviceAccount.yaml' crea un clusterRole 'jenkins-admin', ServiceAccount 'je
 El rol de clúster 'jenkins-admin' tiene todos los permisos para administrar los componentes del clúster. También puede restringir el acceso especificando acciones de recursos individuales.
 Ahora crea la cuenta de servicio usando kubectl.
 
+<img width="846" height="103" alt="image" src="https://github.com/user-attachments/assets/7e1468b4-6338-4af4-9ca5-18f29d341cad" />
+
+cd C:\Users\6002336\.kube
+
+kubectl apply –f serviceAccount.yaml
+
+<img width="994" height="594" alt="image" src="https://github.com/user-attachments/assets/cf8ba81b-f596-42be-bdc6-04285780b0d6" />
+
+Visualizamos en Kubernetes Dashboard – Cluster – Cuentas de servicio – vemos que se ha añadido correctamente la cuenta de servicio jenkins-admin.
+
+<img width="995" height="597" alt="image" src="https://github.com/user-attachments/assets/a53f4b94-9433-4d8f-a169-7018883f419e" />
+<img width="571" height="227" alt="image" src="https://github.com/user-attachments/assets/99afbd1e-d7ab-496b-8dba-dc0152993f0b" />
+
 
