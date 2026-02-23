@@ -59,3 +59,16 @@ Visualizamos en Kubernetes Dashboard – Cluster – Cuentas de servicio – vem
 <img width="571" height="227" alt="image" src="https://github.com/user-attachments/assets/99afbd1e-d7ab-496b-8dba-dc0152993f0b" />
 
 
+Paso 3: Creamos el archivo volume.yaml y copiamos el siguiente manifiesto de volumen persistente.
+<img width="348" height="822" alt="image" src="https://github.com/user-attachments/assets/48419dcf-dc87-4d22-a444-f69ab4840f68" />
+
+<img width="533" height="235" alt="image" src="https://github.com/user-attachments/assets/107bd66d-af8c-46ec-a7e3-45fb7e09d52b" />
+Copiamos el archivo volume.YAML a la ruta C:\Users\6002336\.kube
+
+Puede obtener el nombre de host del nodo trabajador mediante el archivo kubectl
+kubectl get nodes
+
+Vamos a crear el volumen usando kubectl
+
+kubectl create -f volume.yaml
+<img width="751" height="62" alt="image" src="https://github.com/user-attachments/assets/575fd786-7562-4c62-9e25-fd584d4d59b8" />
