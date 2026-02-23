@@ -63,6 +63,7 @@ Paso 3: Creamos el archivo volume.yaml y copiamos el siguiente manifiesto de vol
 <img width="348" height="822" alt="image" src="https://github.com/user-attachments/assets/48419dcf-dc87-4d22-a444-f69ab4840f68" />
 
 <img width="533" height="235" alt="image" src="https://github.com/user-attachments/assets/107bd66d-af8c-46ec-a7e3-45fb7e09d52b" />
+
 Copiamos el archivo volume.YAML a la ruta C:\Users\6002336\.kube
 
 Puede obtener el nombre de host del nodo trabajador mediante el archivo kubectl
@@ -71,4 +72,76 @@ kubectl get nodes
 Vamos a crear el volumen usando kubectl
 
 kubectl create -f volume.yaml
+
 <img width="751" height="62" alt="image" src="https://github.com/user-attachments/assets/575fd786-7562-4c62-9e25-fd584d4d59b8" />
+
+<img width="1016" height="451" alt="image" src="https://github.com/user-attachments/assets/239e7193-0972-42b6-b2b1-d2c4b0701674" />
+
+Vemos que se ha creado el volumen y nos aparece en Minikube dashboard - configuración y almacenamiento – storage classes – local-storage.
+
+Paso 4: Creamos un archivo de implementación llamado deployment.yaml y copiamos el siguiente manifiesto de implementación.
+
+<img width="357" height="822" alt="image" src="https://github.com/user-attachments/assets/6e74423e-fec6-4371-a54b-36cbe65d5d2e" />
+<img width="345" height="266" alt="image" src="https://github.com/user-attachments/assets/6f372788-6096-4176-bd4f-a7c92c2e8507" />
+
+En esta implementación de Jenkins Kubernetes, se ha utilizado lo siguiente:
+- SecurityContext --> para que el pod de Jenkins pueda escribir en el volumen persistente local.
+- Sonda de actividad y preparación para monitorear el estado del pod de Jenkins.
+- Volumen persistente local basado en la clase de almacenamiento local que contiene la ruta de datos de Jenkins /var/jenkins_home.
+
+<img width="442" height="211" alt="image" src="https://github.com/user-attachments/assets/09c12848-6b28-4405-a2de-f0af3f162b98" />
+
+Copiamos el archivo deployment.YAML a la ruta C:\Users\6002336\.kube
+
+Creamos la implementación mediante kubectl
+
+kubectl apply –f deployment.yaml
+
+<img width="421" height="47" alt="image" src="https://github.com/user-attachments/assets/fd37f503-4b59-4d43-8d54-869f600a40c9" />
+
+<img width="1002" height="513" alt="image" src="https://github.com/user-attachments/assets/26ae4b8e-ed50-422a-a1cd-296fcc7ba8c0" />
+
+Vemos que se ha creado el deployment(despliegue) de jenkins en Minikube Dashboard – Cargas de trabajo - deployments
+
+Comprobamos el estado de implementación con kubectl get deployments –n devops-tools.
+
+<img width="506" height="48" alt="image" src="https://github.com/user-attachments/assets/b0506711-d922-4f75-ae51-3a7330af5ca9" />
+
+Se pueden obtener los detalles de implementación con el siguiente comando: kubectl describe deployments –namespace=devops-tools
+
+<img width="797" height="655" alt="image" src="https://github.com/user-attachments/assets/c9e413c5-e1b9-4fd4-b875-d98f955a186b" />
+
+
+ACCESO A JENKINS MEDIANTE EL SERVICIO KUBERNETES:
+
+Creamos el archivo service.yaml y copiamos el siguiente manifiesto de servicio.
+
+<img width="313" height="391" alt="image" src="https://github.com/user-attachments/assets/7d2c8e46-179b-4f8d-a15c-7746497a33a9" />
+
+<img width="611" height="279" alt="image" src="https://github.com/user-attachments/assets/a2f69cc6-0c49-45ce-a13c-c27f6f2b505d" />
+
+Copiamos el archivo service.YAML a la ruta C:\Users\6002336\.kube
+
+Creamos el servicio Jenkins usando kubectl: kubectl apply –f service.yaml
+
+<img width="420" height="36" alt="image" src="https://github.com/user-attachments/assets/6b30aace-cbcc-47e4-ac93-e735566fbaef" />
+
+<img width="1139" height="449" alt="image" src="https://github.com/user-attachments/assets/ebac99ea-6167-4021-ae9a-320a502c29f0" />
+
+Vemos que aparece el servicio jenkins-service en Minikube Dashboard – Service – Servicios.
+
+Ahora, al navegar a cualquiera de las IP de nodo en el puerto 32000, podrá acceder al panel de control de Jenkins.
+http://<node-ip>:32000
+
+Jenkins le pedirá la contraseña de administrador inicial cuando acceda al panel por primera vez.
+
+Puede obtenerlo de los registros del pod, ya sea desde el panel de control de Kubernetes o desde la CLI. Puede obtener los detalles del pod usando el siguiente comando CLI.
+
+<img width="489" height="48" alt="image" src="https://github.com/user-attachments/assets/a721775f-1f86-4b63-9c3c-5db109f512bd" />
+
+kubectl get pods –namespace=devops-tools
+
+
+
+## Licencia 📄
+Bajo licencia GNU General Public License v3.0
