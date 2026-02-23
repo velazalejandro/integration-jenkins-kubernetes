@@ -22,3 +22,27 @@ Primero arrancamos minikube – minikube start
 
 Paso 1: Creamos un espacio de nombres para Jenkins. Es bueno categorizar las herramientas de DevOps como un espacio de nombres separado de otras aplicaciones.
 kubectl create namespace devops-tools
+
+<img width="937" height="662" alt="image" src="https://github.com/user-attachments/assets/573c72dc-9369-4595-ab1c-333579970b3f" />
+
+También vemos que en la página minikube dashboard en Cluster – Espacios de nombre – vemos que aparece devops-tools.
+
+Paso 2: Creamos un archivo serviceAccount.yaml y copiamos el siguiente manifiesto de cuenta de servicio de administración.
+
+<img width="350" height="548" alt="image" src="https://github.com/user-attachments/assets/39ac4d92-e372-43e8-94be-50825e8974cc" />
+
+<img width="648" height="273" alt="image" src="https://github.com/user-attachments/assets/cc5741e7-b772-455e-8e64-417e2ae93782" />
+
+<img width="993" height="371" alt="image" src="https://github.com/user-attachments/assets/59c28c52-7fdd-4c1c-89a3-1d244db18ca7" />
+
+cluster roles – jenkins-admin
+
+<img width="438" height="149" alt="image" src="https://github.com/user-attachments/assets/334086d2-1cd6-4d5e-ad9b-e032d46d9666" />
+
+Copiamos el fichero serviceAccount.YAML a la ruta C:\Users\6002336\.kube
+
+El 'serviceAccount.yaml' crea un clusterRole 'jenkins-admin', ServiceAccount 'jenkins-admin' y vincula el 'clusterRole' a la cuenta de servicio.
+El rol de clúster 'jenkins-admin' tiene todos los permisos para administrar los componentes del clúster. También puede restringir el acceso especificando acciones de recursos individuales.
+Ahora crea la cuenta de servicio usando kubectl.
+
+
