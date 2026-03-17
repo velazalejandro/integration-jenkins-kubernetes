@@ -11,11 +11,9 @@ _Estas instrucciones te permiten obtener una copia del proyecto en funcionamient
 
 
 ### Instalación 🔧 Pruebas ⚙️ y Despliegues 📦
-INTEGRACIÓN DE JENKINS EN KUBERNETES:
+Primero arrancamos minikube – minikube start
 
 <img width="688" height="262" alt="image" src="https://github.com/user-attachments/assets/1329c035-49c8-46db-b117-23d319d29e89" />
-
-Primero arrancamos minikube – minikube start
 
 <img width="443" height="32" alt="image" src="https://github.com/user-attachments/assets/e9ec45ea-1de4-4115-891a-15604968e0fe" />
 
@@ -55,6 +53,7 @@ kubectl apply –f serviceAccount.yaml
 Visualizamos en Kubernetes Dashboard – Cluster – Cuentas de servicio – vemos que se ha añadido correctamente la cuenta de servicio jenkins-admin.
 
 <img width="995" height="597" alt="image" src="https://github.com/user-attachments/assets/a53f4b94-9433-4d8f-a169-7018883f419e" />
+
 <img width="571" height="227" alt="image" src="https://github.com/user-attachments/assets/99afbd1e-d7ab-496b-8dba-dc0152993f0b" />
 
 
@@ -81,6 +80,7 @@ Vemos que se ha creado el volumen y nos aparece en Minikube dashboard - configur
 Paso 4: Creamos un archivo de implementación llamado deployment.yaml y copiamos el siguiente manifiesto de implementación.
 
 <img width="357" height="822" alt="image" src="https://github.com/user-attachments/assets/6e74423e-fec6-4371-a54b-36cbe65d5d2e" />
+
 <img width="345" height="266" alt="image" src="https://github.com/user-attachments/assets/6f372788-6096-4176-bd4f-a7c92c2e8507" />
 
 En esta implementación de Jenkins Kubernetes, se ha utilizado lo siguiente:
@@ -148,4 +148,5 @@ Bajo licencia GNU General Public License v3.0
 
 ## Autor
 Alejandro Velaz
+
 🎓 Formación: ASIR
